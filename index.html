@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons@latest/font/simple-icons.min.css">
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="speech enhancement, large language models, generative model, staged approach">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>LLaSE: Maximizing Acoustic Preservation for LLaMA based Speech Enhancement</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+
+  <style>
+    .image-container {
+      display: flex; /* Use flexbox for horizontal alignment */
+      justify-content: center; /* Center items horizontally */
+    }
+  
+    .image-container img {
+      max-width: 30%; /* Adjust the width as needed */
+      height: auto;
+      margin-right: 30px; /* Add margin to create spacing between images */
+    }
+
+    .image-container img:last-child {
+      margin-right: 0; /* Remove margin from the last image */
+    }
+
+    .image-container2 img{
+      max-width: 35%; /* Adjust the width as needed */
+      height: auto;
+      margin-right: 8em; /* Add margin to create spacing between images */
+    }
+
+    .image-container2 img:first-child {
+      margin-left: -6em;
+
+    }
+    .image-container2 img:last-child {
+      margin-right: -5em; /* Remove margin from the last image */
+    }
+    .audio-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    }
+
+    .audio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    }
+
+    .audio-item2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-left: 5em;
+    }
+
+    .audio-item3 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-right: 5em;
+    }
+
+    
+
+    .audio-item p {
+        margin-top: 10px;
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <!-- 更新标题 -->
+            <h1 class="title is-1 publication-title">LLaSE-G1: Incentivizing Generalization Capability for LLaMA-based Speech Enhancement</h1>
+              <div class="is-size-5 publication-authors">
+                  <!-- 更新作者列表 -->
+              </div>
+
+              <!-- 更新机构信息 -->
+              <div class="is-size-5 publication-authors">
+              </div>
+  
+            <!-- 论文链接部分保持不变 -->
+            <!--
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+  
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+            -->
+            <span class="link-block">
+              <a href="https://anonymous.4open.science/r/LLaSE-G1-5666" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advancements in language models (LMs) have demonstrated strong capabilities in semantic understanding and contextual modeling,
+             which have flourished in generative speech enhancement (SE). However, many LM-based SE approaches primarily 
+             focus on semantic information, often neglecting the critical role of acoustic information, which leads to 
+             acoustic inconsistency after enhancement and limited generalization across diverse SE tasks. In this paper, 
+             we introduce LLaSE-G1, a LLaMA-based language model that incentivizes generalization capabilities for speech 
+             enhancement. LLaSE-G1 offers the following key contributions: First, to mitigate acoustic inconsistency, LLaSE 
+             employs continuous representations from WavLM as input and predicts speech tokens from X-Codec2, maximizing 
+             acoustic preservation. Second, to promote generalization capability, LLaSE-G1 introduces dual-channel inputs 
+             and outputs, unifying multiple SE tasks without requiring task-specific IDs. Third, LLaSE-G1 outperforms prior 
+             task-specific discriminative and generative SE models, demonstrating scaling effects at test time and emerging 
+             capabilities for unseen SE tasks. Additionally, we release our code and models to support further research in this area.  
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Image carousel -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="has-text-centered">
+        <!-- 只保留一张图片 -->
+        <img src="static/images/LLaSE-G1.png" alt="Overview of the LLaSE framework" width="70%"/>
+        <h2 class="subtitle">
+          Figure 1: Overview of the LLaSE-G1 framework.
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End image carousel -->
+
+<!-- Teaser video-->
+<!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/banner_video.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
+      </h2>
+    </div>
+  </div>
+</section> -->
+<!-- End teaser video -->
+
+<!-- 视频展示部分 -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered">Video & Audio Demo</h2>
+      <h2 class="title is-5">Video Samples</h2>
+      <div class="columns is-centered">
+        <!-- 处理前的视频 -->
+        <div class="column has-text-centered video-container">
+          <h3 class="title is-5">Before Processing</h3>
+          <video controls width="100%">
+            <source src="static\videos\origins\British_origin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 处理后的视频 -->
+        <div class="column has-text-centered video-container">
+          <h3 class="title is-5">After Processing</h3>
+          <video controls width="100%">
+            <source src="static\videos\aft\British_aft.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- 处理前的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\origins\Nixon_origin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 处理后的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\aft\Nixon_aft.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- 处理前的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\origins\Singapore_origin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 处理后的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\aft\Singapore_aft.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- 处理前的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\origins\France_origin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 处理后的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\aft\France_aft.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <div class="columns is-centered">
+        <!-- 处理前的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\origins\China_origin.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- 处理后的视频 -->
+        <div class="column has-text-centered video-container">
+          <video controls width="100%">
+            <source src="static\videos\aft\China_aft.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Audio Examples -->
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-5">DNS Blind Testset Examples</h2>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\43.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\43.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\43.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\43.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_43.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\43.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\43.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\43.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\48.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\48.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\48.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\48.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_48.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\48.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\48.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\48.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\67.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\67.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\67.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\67.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_67.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\67.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\67.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\67.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\72.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\72.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\72.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\72.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_72.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\72.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\72.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\72.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\90.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\90.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\90.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\90.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_90.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\90.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\90.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\90.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\130.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\130.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\130.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\130.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_130.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\130.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\130.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\130.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\147.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\147.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\147.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\147.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_147.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\147.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\147.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\147.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\199.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\199.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\199.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\199.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_199.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\199.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\199.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\199.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\255.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\255.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\255.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\255.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_255.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\255.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\255.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\255.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\275.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\275.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\275.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\275.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_275.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\275.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\275.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\275.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">          
+          <div class="image-container" style="display: flex; justify-content: space-between;">
+            <img src="static\images\clean\288.png" alt="clean" style="width: 23%;">
+            <img src="static\images\noisy\288.png" alt="noisy" style="width: 23%;">
+            <img src="static\images\selm\288.png" alt="SELM processed" style="width: 23%;">
+            <img src="static\images\llase\288.png" alt="LLaSE processed" style="width: 23%;">
+          </div>
+          <div class="audio-container" style="display: flex; justify-content: space-between;">
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\clean\clean_fileid_288.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>clean.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">   
+              <audio controls>
+                  <source src="static\audio\noisy\288.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>noisy.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">      
+              <audio controls>
+                  <source src="static\audio\selm\288.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>
+              <p>selm.wav</p>
+            </div>
+            <div class="audio-item" style="width: 23%;">
+              <audio controls>
+                  <source src="static\audio\llase\288.wav" type="audio/wav">
+                  Your browser does not support the audio element.
+              </audio>        
+              <p>llase.wav</p>
+            </div>
+          </div>          
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<section class="hero is-small is-light">
+  <div class="container is-max-desktop content">
+    <div class="container">
+      <h2 class="title">More tasks waiting to be integrated...</h2>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  </body>
+  </html>
