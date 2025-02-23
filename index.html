@@ -175,48 +175,108 @@
     </div>
   </section>
 
-  <!-- Paper abstract -->
 <section class="section hero is-light">
+<div class="container is-max-desktop">
+  <div class="columns is-centered has-text-left"> <!-- 修改为 has-text-left 确保左对齐 -->
+    <div class="column is-eight-fifths is-pulled-left">
+      <h2 class="title is-4">Abstract</h2>
+      <!-- <div class="content has-text-justified"> -->
+        <p>
+          Recent advancements in language models (LMs) have demonstrated strong capabilities in semantic understanding and contextual modeling,
+            which have flourished in generative speech enhancement (SE). However, many LM-based SE approaches primarily 
+            focus on semantic information, often neglecting the critical role of acoustic information, which leads to 
+            acoustic inconsistency after enhancement and limited generalization across diverse SE tasks. In this paper, 
+            we introduce LLaSE-G1, a LLaMA-based language model that incentivizes generalization capabilities for speech 
+            enhancement. LLaSE-G1 offers the following key contributions: First, to mitigate acoustic inconsistency, LLaSE 
+            employs continuous representations from WavLM as input and predicts speech tokens from X-Codec2, maximizing 
+            acoustic preservation. Second, to promote generalization capability, LLaSE-G1 introduces dual-channel inputs 
+            and outputs, unifying multiple SE tasks without requiring task-specific IDs. Third, LLaSE-G1 outperforms prior 
+            task-specific discriminative and generative SE models, demonstrating scaling effects at test time and emerging 
+            capabilities for unseen SE tasks. Additionally, we release our code and models to support further research in this area.  
+        </p>
+      <!-- </div> -->
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- <section class="section hero ">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+    <div class="columns is-centered has-text-left">
+      <div class="column is-ten-fifths">
+        <h2 class="title is-4">Contents</h2>
+          <ul> 
+            <li><a href="#Overall Architecture">Overall Architecture</a></li>
+            <li><a href="#Video">Video Demos</a></li>
+            <li><a href="#NS">Noise Suppression</a></li>
+            <li><a href="#TSE">Target Speaker Extraction</a></li>
+            <li><a href="#PLC">Packet Loss Concealment</a></li>
+            <li><a href="#SS">Zero-Shot Speech Separation</a></li>
+            <li><a href="#AEC">Acoustic Echo Cancellation</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-eight-fifths is-pulled-left"> <!-- 使用 is-pulled-left -->
+        <h2 class="title is-4">Contents</h2>
         <div class="content has-text-justified">
-          <p>
-            Recent advancements in language models (LMs) have demonstrated strong capabilities in semantic understanding and contextual modeling,
-             which have flourished in generative speech enhancement (SE). However, many LM-based SE approaches primarily 
-             focus on semantic information, often neglecting the critical role of acoustic information, which leads to 
-             acoustic inconsistency after enhancement and limited generalization across diverse SE tasks. In this paper, 
-             we introduce LLaSE-G1, a LLaMA-based language model that incentivizes generalization capabilities for speech 
-             enhancement. LLaSE-G1 offers the following key contributions: First, to mitigate acoustic inconsistency, LLaSE 
-             employs continuous representations from WavLM as input and predicts speech tokens from X-Codec2, maximizing 
-             acoustic preservation. Second, to promote generalization capability, LLaSE-G1 introduces dual-channel inputs 
-             and outputs, unifying multiple SE tasks without requiring task-specific IDs. Third, LLaSE-G1 outperforms prior 
-             task-specific discriminative and generative SE models, demonstrating scaling effects at test time and emerging 
-             capabilities for unseen SE tasks. Additionally, we release our code and models to support further research in this area.  
-          </p>
+          <ul style="padding-left: 20;"> <!-- 清除列表缩进 -->
+            <li><a href="#Overall Architecture">Overall Architecture</a></li>
+            <li><a href="#Video">Video Demos</a></li>
+            <li><a href="#NS">Noise Suppression (NS)</a></li>
+            <li><a href="#TSE">Target Speaker Extraction (TSE)</a></li>
+            <li><a href="#AEC">Acoustic Echo Cancellation (AEC)</a></li>
+            <li><a href="#SS">Zero-Shot Speech Separation (SS)</a></li>
+            <li><a href="#PLC">Packet Loss Concealment (PLC)</a></li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
+
+  
+<!-- <section class="section hero">
+<div class="container is-max-desktop">
+  <div class="column is-ten-fifths">
+    <h2 class="title is-4">Contents</h2>
+    <ul style="padding-left: 20px;"> 
+      <li><a href="#Overall Architecture">Overall Architecture</a></li>
+      <li><a href="#Video">Video Demos</a></li>
+      <li><a href="#NS">Noise Suppression</a></li>
+      <li><a href="#TSE">Target Speaker Extraction</a></li>
+      <li><a href="#PLC">Packet Loss Concealment</a></li>
+      <li><a href="#SS">Zero-Shot Speech Separation</a></li>
+      <li><a href="#AEC">Acoustic Echo Cancellation</a></li>
+    </ul>
+  </div>
+</div>
+</section> -->
 
 
 <!-- Image carousel -->
-<section class="hero is-small">
+<section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
       <div class="has-text-centered">
+        <h2 id="Overall Archietecture"></h2>
         <!-- 只保留一张图片 -->
-        <img src="static/images/LLaSE-G1.png" alt="Overview of the LLaSE framework" width="70%"/>
-        <h2 class="subtitle">
-          Figure 1: Overview of the LLaSE-G1 framework.
-        </h2>
+        <img src="static/images/LLaSE-G1.png" alt="Overview of the LLaSE framework." width="70%"/>
+        <p style="max-width: 700px; margin-left: auto; margin-right: auto;">
+          Figure 1: Overview of the LLaSE-G1 framework. LLaSE-G1 greatly 
+          simplifies the model structure, keeping three main components: 
+          (1) a WavLM encoder (2) a LLaMA-based LM and (3) an X-codec2 decoder.
+        </p>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- End image carousel -->
 
@@ -236,16 +296,13 @@
 </section> -->
 <!-- End teaser video -->
 
-<!-- <a href="#NS">NS Task Samples</a> -->
-
 
 <!-- 视频展示部分 -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3 has-text-centered">Audio & Video Demo</h2>
-
-      <a href="#NS">- NS Task Samples</a>
+      <h2 id="Video"></h2>
 
       <h2 class="title is-5">Video Samples</h2>
       <div class="columns is-centered">
@@ -348,8 +405,8 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 id="#NS">NS Task</h2>
-      <h2 class="title is-5">NS Task</h2>
+      <h2 id="NS"></h2>
+      <h2 class="title is-5">Noise Suppresion (NS)</h2>
       <p>Here is a demo of the NS task on DNS Blind Testset. 4 audios of each line contains original clean wav, noisy wav, 
         wav processed by SELM, and wav Processed by our system.</p>
       <br>
@@ -368,28 +425,28 @@
                   <source src="static\audio\clean\clean_fileid_43.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\43.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\43.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\43.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -409,28 +466,28 @@
                   <source src="static\audio\clean\clean_fileid_48.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\48.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\48.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\48.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -450,28 +507,28 @@
                   <source src="static\audio\clean\clean_fileid_67.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\67.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\67.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\67.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -491,28 +548,28 @@
                   <source src="static\audio\clean\clean_fileid_72.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\72.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\72.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\72.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -532,28 +589,28 @@
                   <source src="static\audio\clean\clean_fileid_90.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\90.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\90.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\90.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -573,28 +630,28 @@
                   <source src="static\audio\clean\clean_fileid_130.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\130.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\130.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\130.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -614,28 +671,28 @@
                   <source src="static\audio\clean\clean_fileid_147.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\147.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\147.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\147.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -655,28 +712,28 @@
                   <source src="static\audio\clean\clean_fileid_199.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\199.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\199.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\199.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -696,28 +753,28 @@
                   <source src="static\audio\clean\clean_fileid_255.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\255.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\255.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\255.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -737,28 +794,28 @@
                   <source src="static\audio\clean\clean_fileid_275.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>clean.wav</p>
+              <p>clean</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static\audio\noisy\275.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static\audio\selm\275.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>selm.wav</p>
+              <p>SELM</p>
             </div>
             <div class="audio-item" style="width: 23%;">
               <audio controls>
                   <source src="static\audio\llase\275.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -769,10 +826,11 @@
   </div>
 </section>
 
-<section class="hero is-small is-light">
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-5">TSE Task</h2>
+      <h2 id="TSE"></h2>
+      <h2 class="title is-5">Target Speaker Extraction (TSE)</h2>
       <p>Here is a demo of the TSE task on DNS Blind Testset. 3 audios of each line contains original noisy wav, enrollment wav, 
         and wav Processed by our system.</p>
       <br>
@@ -790,21 +848,21 @@
                   <source src="static/audio/TSE/noisy/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -823,21 +881,21 @@
                   <source src="static/audio/TSE/noisy/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -856,21 +914,21 @@
                   <source src="static/audio/TSE/noisy/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -889,21 +947,21 @@
                   <source src="static/audio/TSE/noisy/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -922,21 +980,21 @@
                   <source src="static/audio/TSE/noisy/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -955,21 +1013,21 @@
                   <source src="static/audio/TSE/noisy/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -988,21 +1046,21 @@
                   <source src="static/audio/TSE/noisy/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/TSE/enrol/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/TSE/aft/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1015,7 +1073,8 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-5">AEC Task</h2>
+      <h2 id="AEC"></h2>
+      <h2 class="title is-5">Acoustic Echo Cancellation (AEC)</h2>
       <p>Here is a demo of the AEC task on AEC Blind Testset. 3 audios of each line contains original noisy wav, reference wav, 
         and wav Processed by our system.</p>
       <br>
@@ -1032,21 +1091,21 @@
                   <source src="static/audio/AEC/noisy/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1065,21 +1124,21 @@
                   <source src="static/audio/AEC/noisy/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1098,21 +1157,21 @@
                   <source src="static/audio/AEC/noisy/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1131,21 +1190,21 @@
                   <source src="static/audio/AEC/noisy/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1164,21 +1223,21 @@
                   <source src="static/audio/AEC/noisy/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1197,21 +1256,21 @@
                   <source src="static/audio/AEC/noisy/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1230,21 +1289,21 @@
                   <source src="static/audio/AEC/noisy/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>noisy.wav</p>
+              <p>noisy</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/AEC/ref/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>ref.wav</p>
+              <p>ref</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/AEC/aft/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1254,10 +1313,11 @@
   </div>
 </section>
 
-<section class="hero is-small is-light">
+<section class="hero is-small ">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-5">SS Task</h2>
+      <h2 id="SS"></h2>
+      <h2 class="title is-5">Zero-Shot Speech Separation (SS)</h2>
       <p>Here is a demo of the SS task samples on librimix and WSJ02. 3 audios of each line contains original mixed wav, the first speaker wav, 
         and the second wav separated by our system.</p>
       <br>
@@ -1274,21 +1334,21 @@
                   <source src="static/audio/SS/mix/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1307,21 +1367,21 @@
                   <source src="static/audio/SS/mix/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1340,21 +1400,21 @@
                   <source src="static/audio/SS/mix/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1373,21 +1433,21 @@
                   <source src="static/audio/SS/mix/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1406,21 +1466,21 @@
                   <source src="static/audio/SS/mix/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1439,21 +1499,21 @@
                   <source src="static/audio/SS/mix/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/6.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1472,21 +1532,21 @@
                   <source src="static/audio/SS/mix/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>mix.wav</p>
+              <p>mix</p>
             </div>
             <div class="audio-item" style="width: 23%;">   
               <audio controls>
                   <source src="static/audio/SS/S1/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S1.wav</p>
+              <p>S1</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/SS/S2/7.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>S2.wav</p>
+              <p>S2</p>
             </div>
           </div>          
         </div>
@@ -1500,8 +1560,9 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-5">PLC Task</h2>
-      <p>Here is a demo of the PLC task on PLC Blind Testset. 2 audios of each line contains original lossy wav, 
+      <h2 id="PLC"></h2>
+      <h2 class="title is-5">Packet Loss Concealment (PLC)</h2>
+      <p>Here is a demo of the PLC task on PLC Blind Testset. 2 audios of each line contains the original lossy wav, 
         and the wav Processed by our system. Notebly, our system DO NOT need extra lossy mask label.</p>
       <br>
       
@@ -1517,14 +1578,14 @@
                   <source src="static/audio/PLC/origin/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>lossy.wav</p>
+              <p>lossy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/PLC/aft/1.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1542,14 +1603,14 @@
                   <source src="static/audio/PLC/origin/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>lossy.wav</p>
+              <p>lossy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/PLC/aft/2.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1567,14 +1628,14 @@
                   <source src="static/audio/PLC/origin/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>lossy.wav</p>
+              <p>lossy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/PLC/aft/3.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1592,14 +1653,14 @@
                   <source src="static/audio/PLC/origin/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>lossy.wav</p>
+              <p>lossy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/PLC/aft/4.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1617,14 +1678,14 @@
                   <source src="static/audio/PLC/origin/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>        
-              <p>lossy.wav</p>
+              <p>lossy</p>
             </div>
             <div class="audio-item" style="width: 23%;">      
               <audio controls>
                   <source src="static/audio/PLC/aft/5.wav" type="audio/wav">
                   Your browser does not support the audio element.
               </audio>
-              <p>llase.wav</p>
+              <p>LLaSE</p>
             </div>
           </div>          
         </div>
@@ -1635,7 +1696,7 @@
   </div>
 </section>
 
-<section class="hero is-small is-light">
+<section class="hero is-small ">
   <div class="container is-max-desktop content">
     <div class="container">
       <h2 class="title">More tasks waiting to be integrated...</h2>
